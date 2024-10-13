@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fffcef;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Integrations */
+.integrations {
+  position: relative;
+}
+
+.integrations__svg {
+  width: 100%;
+  height: auto;
+}
+
+.integrations__svg rect {
+  fill: transparent;
+}
+
+.integrations__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.integrations__imgs {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.integrations__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.integrations__img[data-img="google-analytics"] img {
+  transform-origin: center;
+  transform: rotate(-15deg);
+}
+
+.integrations__img[data-img="customer-io"] img {
+  transform-origin: center;
+  transform: rotate(15deg);
+}
+
+[data-moving-block] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+[data-moving-block] img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.integrations:before {
+  content: "";
+  position: absolute;
+  top: calc(100% - 11px);
+  left: 0;
+  width: 100%;
+  height: 32px;
+  background-color: #fffcef;
+  z-index: 2;
+}
+
+.integrations__linear {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.integrations__linear [data-linear] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: linear-gradient(180deg, rgb(255, 252, 239, 0), rgb(255, 252, 239, 1));
+}
+
+.integrations__linear [data-linear="top"] {
+  background: linear-gradient(180deg, rgb(255, 252, 239, 1), rgb(255, 252, 239, 0));
+}
