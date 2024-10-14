@@ -19,6 +19,12 @@ section {
 /* Integrations */
 .integrations {
   position: relative;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.integrations.ready {
+  opacity: 1;
 }
 
 .integrations__svg {
@@ -67,6 +73,7 @@ section {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  opacity: 0;
 }
 
 [data-moving-block] img {

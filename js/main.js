@@ -57,30 +57,29 @@ class Integrations {
     });
 
     this.tlMiddleRight
+    .to(
+      ".tear-middle-right",
+      {
+        duration: 3.2,
+        ease: "linear",
+        motionPath: {
+          path: ".line-middle-right",
+          align: ".line-middle-right",
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true,
+        },
+      },
+    )
       .fromTo(
         ".tear-middle-right",
         { autoAlpha: 0, scaleX: 0 },
-        { autoAlpha: 1, scaleX: 1, ease: "sine.out" }
-      )
-      .to(
-        ".tear-middle-right",
-        {
-          duration: 3,
-          ease: "power4.inOut",
-          motionPath: {
-            path: ".line-middle-right",
-            align: ".line-middle-right",
-            alignOrigin: [0.5, 0.5],
-            autoRotate: true,
-          },
-        },
-        "-=1"
+        { autoAlpha: 1, scaleX: 1, ease: "sine.out" }, 0
       )
       .fromTo(
         ".tear-middle-right",
         { scaleY: 1 },
         { scaleY: 0, ease: "sine.in" },
-        "-=1.15"
+        "-=0.7"
       );
   }
 
@@ -92,30 +91,29 @@ class Integrations {
     });
 
     this.tlMiddleLeft
+    .to(
+      ".tear-middle-left",
+      {
+        duration: 4.5,
+        ease: "linear",
+        motionPath: {
+          path: ".line-middle-left",
+          align: ".line-middle-left",
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true,
+        },
+      },
+    )
       .fromTo(
         ".tear-middle-left",
         { autoAlpha: 0, scaleX: 0 },
-        { autoAlpha: 1, scaleX: 1, ease: "sine.out" }
-      )
-      .to(
-        ".tear-middle-left",
-        {
-          duration: 4,
-          ease: "power4.inOut",
-          motionPath: {
-            path: ".line-middle-left",
-            align: ".line-middle-left",
-            alignOrigin: [0.5, 0.5],
-            autoRotate: true,
-          },
-        },
-        "-=1"
+        { autoAlpha: 1, scaleX: 1, ease: "sine.out" }, 0
       )
       .fromTo(
         ".tear-middle-left",
         { scaleY: 1 },
         { scaleY: 0, ease: "sine.in" },
-        "-=1.25"
+        "-=0.6"
       );
   }
 
@@ -127,30 +125,29 @@ class Integrations {
     });
 
     this.tlLeft
+    .to(
+      ".tear-left",
+      {
+        duration: 2.3,
+        ease: "linear",
+        motionPath: {
+          path: ".line-left",
+          align: ".line-left",
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true,
+        },
+      },
+    )
       .fromTo(
         ".tear-left",
         { autoAlpha: 0, scaleX: 0 },
-        { autoAlpha: 1, scaleX: 1, ease: "sine.out" }
-      )
-      .to(
-        ".tear-left",
-        {
-          duration: 2.2,
-          ease: "power4.inOut",
-          motionPath: {
-            path: ".line-left",
-            align: ".line-left",
-            alignOrigin: [0.5, 0.5],
-            autoRotate: true,
-          },
-        },
-        "-=1"
+        { autoAlpha: 1, scaleX: 1, ease: "sine.out" }, 0
       )
       .fromTo(
         ".tear-left",
         { scaleY: 1 },
         { scaleY: 0, ease: "sine.in" },
-        "-=0.9"
+        "-=0.4"
       );
   }
 
@@ -163,30 +160,27 @@ class Integrations {
     });
 
     this.tlRight
+      .to(".tear-right", {
+        duration: 5,
+        ease: "linear",
+        motionPath: {
+          path: ".line-right",
+          align: ".line-right",
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true,
+        },
+      })
       .fromTo(
         ".tear-right",
         { autoAlpha: 0, scaleX: 0 },
-        { autoAlpha: 1, scaleX: 1, ease: "sine.out" }
-      )
-      .to(
-        ".tear-right",
-        {
-          duration: 4,
-          ease: "power4.inOut",
-          motionPath: {
-            path: ".line-right",
-            align: ".line-right",
-            alignOrigin: [0.5, 0.5],
-            autoRotate: true,
-          },
-        },
-        "-=1"
+        { autoAlpha: 1, scaleX: 1, ease: "sine.out" },
+        0
       )
       .fromTo(
         ".tear-right",
         { scaleY: 1 },
         { scaleY: 0, ease: "sine.in" },
-        "-=1.25"
+        "-=0.5"
       );
   }
 
@@ -230,7 +224,8 @@ class Integrations {
 
       if (l.getAttribute("data-linear") === "top") {
         top =
-          (Math.abs(this.getRect(l).top - this.getRect(this.container).top) - 5) +
+          Math.abs(this.getRect(l).top - this.getRect(this.container).top) -
+          5 +
           "px";
       } else {
         top =
@@ -251,11 +246,16 @@ class Integrations {
     });
   }
 
+  onReady() {
+    this.container.classList.add("ready");
+  }
+
   init() {
     this.setImagePosition();
     this.setLinearGradient();
     this.animateDarkTears();
     this.onResize();
+    this.onReady();
   }
 }
 
