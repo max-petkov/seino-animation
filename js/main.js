@@ -60,7 +60,7 @@ class Integrations {
     .to(
       ".tear-middle-right",
       {
-        duration: 3.2,
+        duration: 2.5,
         ease: "linear",
         motionPath: {
           path: ".line-middle-right",
@@ -79,7 +79,7 @@ class Integrations {
         ".tear-middle-right",
         { scaleY: 1 },
         { scaleY: 0, ease: "sine.in" },
-        "-=0.7"
+        "-=0.5"
       );
   }
 
@@ -94,7 +94,7 @@ class Integrations {
     .to(
       ".tear-middle-left",
       {
-        duration: 4.5,
+        duration: 3.7,
         ease: "linear",
         motionPath: {
           path: ".line-middle-left",
@@ -113,7 +113,7 @@ class Integrations {
         ".tear-middle-left",
         { scaleY: 1 },
         { scaleY: 0, ease: "sine.in" },
-        "-=0.6"
+        "-=0.4"
       );
   }
 
@@ -128,7 +128,7 @@ class Integrations {
     .to(
       ".tear-left",
       {
-        duration: 2.3,
+        duration: 1.8,
         ease: "linear",
         motionPath: {
           path: ".line-left",
@@ -161,7 +161,7 @@ class Integrations {
 
     this.tlRight
       .to(".tear-right", {
-        duration: 5,
+        duration: 4,
         ease: "linear",
         motionPath: {
           path: ".line-right",
